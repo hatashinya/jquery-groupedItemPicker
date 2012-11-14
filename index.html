@@ -1,0 +1,60 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>jquery-groupedItemPicker</title>
+    <link type="text/css" href="lib/jquery.treeview.css" rel="stylesheet" />
+    <link type="text/css" href="lib/jquery-treeview-menu.css" rel="stylesheet" />
+    <style type="text/css">
+        input, select { font-size: 100%; }
+        .tvm-root { border: 1px solid #ccc; }
+        .tvm-container {border: 1px solid #ccc; background: #fff; }
+    </style>
+    <script type="text/javascript" src="lib/jquery-1.4.1.min.js"></script>
+    <script type="text/javascript" src="lib/jquery.treeview.js"></script>
+    <script type="text/javascript" src="lib/jquery-treeview-menu.js"></script>
+    <script type="text/javascript" src="jquery-groupedItemPicker.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var picker = $("#picker");
+            picker.groupedItemPicker({
+                size: 10,
+                search: true,
+                content: $("#groupTree").html()
+            }).bind("groupChange", function () {
+                var group = picker.groupedItemPicker("getGroup");
+                picker.groupedItemPicker("clearChoice");
+                for (var i = 1; i <= 5; i++) {
+                    picker.groupedItemPicker("appendChoice", group.value + i, group.text + i);
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+<h1>jquery-groupedItemPicker</h1>
+
+<div id="picker"></div>
+<div id="groupTree" style="display: none;">
+<ul>
+    <li><a href="#" id="Social">Social</a>
+    <ul>
+        <li><a href="#" id="Facebook">Facebook</a></li>
+        <li><a href="#" id="Myspace">Myspace</a></li>
+        <li><a href="#" id="Twitter">Twitter</a></li>
+    </ul>
+    </li>
+    <li><a href="#" id="Search">Search</a>
+    <ul>
+        <li><a href="#" id="Google">Google</a>
+        <ul>
+            <li><a href="#" id="Google Map">Google Map</a></li>
+            <li><a href="#" id="Google Code">Google Code</a></li>
+        </ul>
+        </li>
+        <li><a href="#" id="Yahoo">Yahoo</a></li>
+    </ul>
+    </li>
+</ul>
+</div>
+</body>
+</html>
