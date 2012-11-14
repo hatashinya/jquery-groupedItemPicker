@@ -15,7 +15,7 @@ Requires
 
 API Reference
 -------------
-* [[.groupedItemPicker()|GroupedItemPicker]]
+* [.groupedItemPicker()](https://github.com/hatashinya/jquery-groupedItemPicker/wiki/GroupedItemPicker)
 
 Copyrights
 ----------
